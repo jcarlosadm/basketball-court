@@ -8,7 +8,7 @@ Rectangle::Rectangle(int x, int y, int width, int height)
     this->width = width;
 }
 
-void Rectangle::draw(LineAlgorithm *lineAlgorithm, float color[], Point &plotter)
+void Rectangle::draw(LineAlgorithm *lineAlgorithm, float color[], Point plotter)
 {
     lineAlgorithm->line(this->x, this->y, this->x + this->width, this->y, color, plotter);
     lineAlgorithm->line(this->x + this->width, this->y, this->x + this->width, this->y - this->height, color, plotter);

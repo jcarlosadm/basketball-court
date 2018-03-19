@@ -8,7 +8,7 @@ class Rectangle
 {
 public:
     Rectangle(int x, int y, int width, int height);
-    void draw(LineAlgorithm *lineAlgorithm,float color[], Point &plotter);
+    void draw(LineAlgorithm *lineAlgorithm,float color[], Point plotter);
 
 private:
     int x, y, width, height;
