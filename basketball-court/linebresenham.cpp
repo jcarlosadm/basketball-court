@@ -6,7 +6,6 @@ void swap_(int &x1, int &x2) {
     x2 = temp;
 }
 
-// TODO: implement
 void LineBresenham::line(int x1, int y1, int x2, int y2, float color[], Point plotter)
 {
     int dx, dy, incE, incNE, d, x, y;
