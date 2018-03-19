@@ -12,8 +12,8 @@ Rectangle::Rectangle(int x, int y, int width, int height)
 void Rectangle::draw(LineAlgorithm *lineAlgorithm, float color[], Point plotter)
 {
 
-    int adjl = (int) ((height*(1.0f-adjust_left))/2.0f);
-    int adjr = (int) ((height*(1.0f-adjust_right))/2.0f);
+    int adjl = (int) ((height*(1.0-adjust_left))/2.0);
+    int adjr = (int) ((height*(1.0-adjust_right))/2.0);
 
     lineAlgorithm->line(this->x,
                         this->y - adjl,
@@ -28,9 +28,9 @@ void Rectangle::draw(LineAlgorithm *lineAlgorithm, float color[], Point plotter)
                         color, plotter);
 
     lineAlgorithm->line(this->x + this->width,
-                        this->y - this->height + adjl,
-                        this->x,
                         this->y - this->height + adjr,
+                        this->x,
+                        this->y - this->height + adjl,
                         color, plotter);
 
     lineAlgorithm->line(this->x,
