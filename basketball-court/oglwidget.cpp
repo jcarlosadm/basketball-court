@@ -7,15 +7,31 @@
 #include "linealgorithm.h"
 #include "point.h"
 
+#include <QTimer>
+
+float OGLWidget::lineSize = 1.0f;
+
 OGLWidget::OGLWidget(QWidget *parent)
     : QOpenGLWidget(parent)
 {
-
+    QTimer *timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(update()));
+    timer->start(10);
 }
 
 OGLWidget::~OGLWidget()
 {
 
+}
+
+void OGLWidget::setLineSize(float lineSize_)
+{
+    OGLWidget::lineSize = lineSize_;
+}
+
+float OGLWidget::getLineSize()
+{
+    return OGLWidget::lineSize;
 }
 
 void OGLWidget::initializeGL()

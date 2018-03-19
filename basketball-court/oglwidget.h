@@ -11,11 +11,16 @@ class OGLWidget : public QOpenGLWidget
 public:
     OGLWidget(QWidget *parent = 0);
     ~OGLWidget();
+    static void setLineSize(float lineSize_);
+    static float getLineSize();
 
 protected:
     void initializeGL();
     void resizeGL(int w, int h);
     void paintGL();
+
+private:
+    static float lineSize;
 };
 
 #endif // OGLWIDGET_H
