@@ -6,8 +6,7 @@
 class LineAlgorithm
 {
 public:
-    LineAlgorithm(){}
-    ~LineAlgorithm(){}
+    virtual ~LineAlgorithm(){}
     virtual void line(int x1, int y1, int x2, int y2, float color[3], Point plotter) = 0;
 };
 

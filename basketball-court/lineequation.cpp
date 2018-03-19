@@ -1,10 +1,5 @@
 #include "lineequation.h"
 
-LineEquation::LineEquation()
-{
-
-}
-
 void LineEquation::line(int x1, int y1, int x2, int y2, float color[3], Point plotter)
 {
     int x, y;

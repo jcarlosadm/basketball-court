@@ -8,6 +8,9 @@ class CircleEquation : public CircleAlgorithm
 {
 public:
     CircleEquation(){}
+    ~CircleEquation(){
+        this->~CircleAlgorithm();
+    }
     void circle(int centerx, int centery, int radius, float color[], Point plotter);
 };
 

@@ -6,6 +6,7 @@
 class CircleAlgorithm
 {
 public:
+    virtual ~CircleAlgorithm(){}
     virtual void circle(int centerx, int centery, int radius, float color[], Point plotter) = 0;
 };
 

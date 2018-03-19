@@ -149,7 +149,21 @@
        </widget>
       </item>
       <item>
-       <widget class="QComboBox" name="comboBox"/>
+       <widget class="QComboBox" name="comboBox">
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <item>
+         <property name="text">
+          <string>line/circle equation</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Bresenham</string>
+         </property>
+        </item>
+       </widget>
       </item>
      </layout>
     </widget>
