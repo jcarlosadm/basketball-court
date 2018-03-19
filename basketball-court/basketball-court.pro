@@ -32,7 +32,9 @@ SOURCES += \
     lineequation.cpp \
     circleequation.cpp \
     field.cpp \
-    rectangle.cpp
+    rectangle.cpp \
+    linebresenham.cpp \
+    circlebresenham.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -43,7 +45,9 @@ HEADERS += \
     circlealgorithm.h \
     circleequation.h \
     field.h \
-    rectangle.h
+    rectangle.h \
+    linebresenham.h \
+    circlebresenham.h
 
 FORMS += \
         mainwindow.ui

@@ -3,6 +3,8 @@
 
 #include "lineequation.h"
 #include "circleequation.h"
+#include "linebresenham.h"
+#include "circlebresenham.h"
 #include <iostream>
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -44,5 +46,9 @@ void MainWindow::on_comboBox_currentIndexChanged(const QString &arg1)
     if(arg1 == "line/circle equation"){
         OGLWidget::setLineAlgorithm(new LineEquation());
         OGLWidget::setCircleAlgorithm(new CircleEquation());
+    }
+    else if(arg1 == "Bresenham") {
+        OGLWidget::setLineAlgorithm(new LineBresenham());
+        OGLWidget::setCircleAlgorithm(new CircleBresenham());
     }
 }
