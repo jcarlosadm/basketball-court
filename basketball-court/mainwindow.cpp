@@ -19,6 +19,20 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_horizontalSlider_sliderMoved(int position)
 {
-    float pointSize = 1.0f + (position * 0.2f);
-    OGLWidget::setLineSize(pointSize);
+    OGLWidget::setLineSize(1.0f + (position * 0.2f));
+}
+
+void MainWindow::on_verticalSlider_sliderMoved(int position)
+{
+    OGLWidget::setLineColorRed(position/100.0f);
+}
+
+void MainWindow::on_verticalSlider_2_sliderMoved(int position)
+{
+    OGLWidget::setLineColorGreen(position/100.0f);
+}
+
+void MainWindow::on_verticalSlider_3_sliderMoved(int position)
+{
+    OGLWidget::setLineColorBlue(position/100.0f);
 }

@@ -10,6 +10,7 @@
 #include <QTimer>
 
 float OGLWidget::lineSize = 1.0f;
+float OGLWidget::lineColor[] = {1.0f,1.0f,1.0f};
 
 OGLWidget::OGLWidget(QWidget *parent)
     : QOpenGLWidget(parent)
@@ -34,6 +35,21 @@ float OGLWidget::getLineSize()
     return OGLWidget::lineSize;
 }
 
+void OGLWidget::setLineColorRed(float red)
+{
+    OGLWidget::lineColor[0] = red;
+}
+
+void OGLWidget::setLineColorGreen(float green)
+{
+    OGLWidget::lineColor[1] = green;
+}
+
+void OGLWidget::setLineColorBlue(float blue)
+{
+    OGLWidget::lineColor[2] = blue;
+}
+
 void OGLWidget::initializeGL()
 {
     resizeGL(this->width(),this->height());
@@ -50,10 +66,9 @@ void OGLWidget::paintGL()
     LineAlgorithm * lineAlg = &line;
     CircleAlgorithm * circleAlg = &circle;
 
-    float color[] = {1.0f,0.0f,0.0f};
     Point plotter;
 
-    field.draw(circleAlg,lineAlg, 0,0,color,plotter);
+    field.draw(circleAlg,lineAlg, 0,0, OGLWidget::lineColor, plotter);
 
     glFlush();
 }

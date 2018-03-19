@@ -13,6 +13,9 @@ public:
     ~OGLWidget();
     static void setLineSize(float lineSize_);
     static float getLineSize();
+    static void setLineColorRed(float red);
+    static void setLineColorGreen(float green);
+    static void setLineColorBlue(float blue);
 
 protected:
     void initializeGL();
@@ -21,6 +24,7 @@ protected:
 
 private:
     static float lineSize;
+    static float lineColor[];
 };
 
 #endif // OGLWIDGET_H

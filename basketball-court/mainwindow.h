@@ -18,6 +18,12 @@ public:
 private slots:
     void on_horizontalSlider_sliderMoved(int position);
 
+    void on_verticalSlider_sliderMoved(int position);
+
+    void on_verticalSlider_2_sliderMoved(int position);
+
+    void on_verticalSlider_3_sliderMoved(int position);
+
 private:
     Ui::MainWindow *ui;
 };
