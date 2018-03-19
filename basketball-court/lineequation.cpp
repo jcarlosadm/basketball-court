@@ -17,10 +17,10 @@ void LineEquation::line(int x1, int y1, int x2, int y2, float color[3], Point pl
     }
 
     if (x2 != x1){
-        a = (y2 - y1) / (x2 - x1);
+        a = (y2 - y1) / (float) (x2 - x1);
 
         for(x = x1; x <= x2; ++x) {
-            y = (y1 + a * (x - x1));
+            y = (y1 + (int)(a * (x - x1)));
             plotter.draw(x, y, color);
         }
     }

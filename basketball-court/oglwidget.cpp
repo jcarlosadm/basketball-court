@@ -34,10 +34,8 @@ void OGLWidget::paintGL()
     LineAlgorithm * lineAlg = &line;
     CircleAlgorithm * circleAlg = &circle;
 
-    float color[] = {1.0f,1.0f,1.0f};
+    float color[] = {1.0f,0.0f,0.0f};
     Point plotter;
-
-    //lineAlg->line(-220,-40,45,400,color,plotter);
 
     field.draw(circleAlg,lineAlg, 0,0,color,plotter);
 

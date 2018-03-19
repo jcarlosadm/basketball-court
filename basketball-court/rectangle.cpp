@@ -1,4 +1,5 @@
 #include "rectangle.h"
+#include <iostream>
 
 Rectangle::Rectangle(int x, int y, int width, int height)
 {
@@ -10,8 +11,41 @@ Rectangle::Rectangle(int x, int y, int width, int height)
 
 void Rectangle::draw(LineAlgorithm *lineAlgorithm, float color[], Point plotter)
 {
-    lineAlgorithm->line(this->x, this->y, this->x + this->width, this->y, color, plotter);
-    lineAlgorithm->line(this->x + this->width, this->y, this->x + this->width, this->y - this->height, color, plotter);
-    lineAlgorithm->line(this->x + this->width, this->y - this->height, this->x, this->y - this->height, color, plotter);
-    lineAlgorithm->line(this->x, this->y - this->height, this->x, this->y, color, plotter);
+
+    int adjl = (int) ((height*(1.0f-adjust_left))/2.0f);
+    int adjr = (int) ((height*(1.0f-adjust_right))/2.0f);
+
+    lineAlgorithm->line(this->x,
+                        this->y - adjl,
+                        this->x + this->width,
+                        this->y - adjr,
+                        color, plotter);
+
+    lineAlgorithm->line(this->x + this->width,
+                        this->y - adjr,
+                        this->x + this->width,
+                        this->y - this->height + adjr,
+                        color, plotter);
+
+    lineAlgorithm->line(this->x + this->width,
+                        this->y - this->height + adjl,
+                        this->x,
+                        this->y - this->height + adjr,
+                        color, plotter);
+
+    lineAlgorithm->line(this->x,
+                        this->y - this->height + adjl,
+                        this->x,
+                        this->y - adjl,
+                        color, plotter);
+}
+
+void Rectangle::adjustleft(float adjust)
+{
+    this->adjust_left = adjust;
+}
+
+void Rectangle::adjustright(float adjust)
+{
+    this->adjust_right = adjust;
 }
