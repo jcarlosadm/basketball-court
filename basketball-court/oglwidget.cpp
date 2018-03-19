@@ -1,5 +1,12 @@
 #include "oglwidget.h"
 
+#include "field.h"
+#include "circleequation.h"
+#include "circlealgorithm.h"
+#include "lineequation.h"
+#include "linealgorithm.h"
+#include "point.h"
+
 OGLWidget::OGLWidget(QWidget *parent)
     : QOpenGLWidget(parent)
 {
@@ -13,35 +20,36 @@ OGLWidget::~OGLWidget()
 
 void OGLWidget::initializeGL()
 {
-    glClearColor(1,1,1,1);
-    glEnable(GL_DEPTH_TEST);
-    glEnable(GL_LIGHT0);
-    glEnable(GL_LIGHTING);
-    glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
-    glEnable(GL_COLOR_MATERIAL);
+    resizeGL(this->width(),this->height());
 }
 
 void OGLWidget::paintGL()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    glBegin(GL_TRIANGLES);
-        glColor3f(1.0, 0.0, 0.0);
-        glVertex3f(-0.5, -0.5, 0);
-        glColor3f(0.0, 1.0, 0.0);
-        glVertex3f( 0.5, -0.5, 0);
-        glColor3f(0.0, 0.0, 1.0);
-        glVertex3f( 0.0,  0.5, 0);
-    glEnd();
+    Field field;
+    LineEquation line;
+    CircleEquation circle;
+
+    LineAlgorithm * lineAlg = &line;
+    CircleAlgorithm * circleAlg = &circle;
+
+    float color[] = {1.0f,1.0f,1.0f};
+    Point plotter;
+
+    //lineAlg->line(-220,-40,45,400,color,plotter);
+
+    field.draw(circleAlg,lineAlg, 0,0,color,plotter);
+
+    glFlush();
 }
 
 void OGLWidget::resizeGL(int w, int h)
 {
-    glViewport(0,0,w,h);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluPerspective(45, (float)w/h, 0.01, 100.0);
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-    gluLookAt(0,0,5,0,0,0,0,1,0);
+    glViewport(0,0,w,h);
+
+    //qreal aspectratio = qreal(w) / qreal(h);
+    glOrtho(-800, 800, -600, 600, 1, -1);
 }

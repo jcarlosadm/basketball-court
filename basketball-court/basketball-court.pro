@@ -27,11 +27,23 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    oglwidget.cpp
+    oglwidget.cpp \
+    point.cpp \
+    lineequation.cpp \
+    circleequation.cpp \
+    field.cpp \
+    rectangle.cpp
 
 HEADERS += \
         mainwindow.h \
-    oglwidget.h
+    oglwidget.h \
+    point.h \
+    linealgorithm.h \
+    lineequation.h \
+    circlealgorithm.h \
+    circleequation.h \
+    field.h \
+    rectangle.h
 
 FORMS += \
         mainwindow.ui
