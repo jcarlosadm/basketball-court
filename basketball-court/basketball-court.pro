@@ -47,7 +47,8 @@ HEADERS += \
     field.h \
     rectangle.h \
     linebresenham.h \
-    circlebresenham.h
+    circlebresenham.h \
+    grandstand.h
 
 FORMS += \
         mainwindow.ui
