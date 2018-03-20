@@ -98,8 +98,8 @@ void OGLWidget::paintGL()
                 int x = points.at(n - 1);
                 int y = points.at(n);
 
-                Rectangle *rectangle = new Rectangle(x, y, 800, 50);
-                rectangle->draw(lineAlg, OGLWidget::lineColor, plotter);
+                Rectangle rectangle(x, y, 800, 50);
+                rectangle.draw(lineAlg, OGLWidget::lineColor, plotter);
             }
         }
     }
