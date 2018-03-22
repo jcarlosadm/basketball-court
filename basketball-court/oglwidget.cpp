@@ -90,17 +90,21 @@ void OGLWidget::paintGL()
 
     field.draw(circleAlg,lineAlg, 0,0, OGLWidget::lineColor, plotter);
 
-    if (points.size() > 1) {
-        for (unsigned int n = 0; n < points.size(); ++n) {
+    if (points.size() >= 4) {
+        for (unsigned int n = 2; n < points.size(); ++n) {
             if (n % 2 != 0) {
-                //plotter.draw(points.at(n - 1), points.at(n), OGLWidget::lineColor);
+                int x1 = points.at(n - 3);
+                int y1 = points.at(n - 2);
 
-                int x = points.at(n - 1);
-                int y = points.at(n);
+                int x2 = points.at(n - 1);
+                int y2 = points.at(n);
 
-                Rectangle rectangle(x, y, 800, 50);
-                rectangle.draw(lineAlg, OGLWidget::lineColor, plotter);
+                lineAlg->line(x1, y1, x2, y2, OGLWidget::lineColor, plotter);
             }
+        }
+    } else {
+        if (points.size() == 2) {
+            plotter.draw(points.at(0), points.at(1), OGLWidget::lineColor);
         }
     }
 
